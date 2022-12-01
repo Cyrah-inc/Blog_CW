@@ -11,3 +11,4 @@ const IndexHeader = ({ navigation }) => {
 
 const styles = StyleSheet.create({});
 export default IndexHeader;
+ 

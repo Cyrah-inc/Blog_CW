@@ -28,8 +28,8 @@ function App() {
         <Stack.Screen
           name="Show"
           component={ShowScreen}
-          options={({ navigation }) => ({
-            headerRight: () => <EditHeader navigation={navigation} />,
+          options={({ navigation, route }) => ({
+            headerRight: () => <EditHeader navigation={navigation} route ={route}/>,
           })}
         />
         <Stack.Screen name="Edit" component={EditScreen} />

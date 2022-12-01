@@ -17,3 +17,22 @@ npx expo install react-native-screens react-native-safe-area-context
 ->Easy to communicate data from parent to a supper nested child
 
 ### Context wraps everything. thus you wra[p the app.js inside it
+
+### Adding code to github repository
+ In settings Git:Enabled
+ git -version
+ git init
+ git add .
+ git commit -m "My first Commit"
+ git branch -M master
+ git remote add Repository url
+ git push -u origin master
+
+ ### making Commits
+ -> git add .
+ -> git commit -m "Write relevant message"
+ -> git push origin master
+
+Incase of error I dont know who you are:
+ git config -global user.name "Your Name"
+ git config -global user.email "Your Email"
