@@ -10,11 +10,21 @@ const ShowScreen = ({ route }) => {
 
   return (
     <View>
-      <Text>{blogPost.title}</Text>
-      <Text>{blogPost.content}</Text>
+      <Text style={styles.txt}>{blogPost.title}</Text>
+      <Text style ={ styles.txt1}>{blogPost.content}</Text>
     </View>
   );
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  txt:{
+    fontSize: 16,
+    alignSelf: 'center'
+  },
+  txt1:{
+    fontSize: 16,
+    justifyContent: 'flex-start',
+    margin:10
+  }
+});
 
 export default ShowScreen;

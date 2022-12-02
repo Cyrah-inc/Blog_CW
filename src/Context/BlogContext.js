@@ -1,8 +1,14 @@
 import React, {useReducer} from "react";
+import jsonserver from "../Api/jsonserver";
+
+
 const BlogContext = React.createContext();
 const blogReducer = (state, action) => {
     // action.type == add_blogpost/ delete_blogpost
     switch(action.type){
+        case 'get_blogposts':
+            return action.payload
+
         case 'add_blogpost':
             return [...state, {
                 id: state.length+1,
@@ -34,6 +40,10 @@ const blogReducer = (state, action) => {
 export const BlogProvider = ({children}) => {
     const [blogPosts, dispatch] = useReducer(blogReducer, []);
     
+    const getBlogPost = async()=>{
+        const response = await jsonserver.get('/blogposts');
+        dispatch({type: 'get_blogposts', payload: response.data })
+    }
     const addBlogPost = (title, content, callback) => {
         dispatch({type: 'add_blogpost', payload: {title, content}});
         callback();
@@ -46,6 +56,6 @@ export const BlogProvider = ({children}) => {
         dispatch({type: 'delete_blogpost', payload: id})
     }
     // {{data: blogPosts, addBlogPost, deleteBlogPost}}
-    return <BlogContext.Provider value={{data: blogPosts, addBlogPost, editBlogPost,deleteBlogPost}}>{children}</BlogContext.Provider>
+    return <BlogContext.Provider value={{data: blogPosts, addBlogPost, getBlogPost, editBlogPost,deleteBlogPost}}>{children}</BlogContext.Provider>
 }
 export default BlogContext;

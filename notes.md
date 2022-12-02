@@ -36,3 +36,50 @@ npx expo install react-native-screens react-native-safe-area-context
 Incase of error I dont know who you are:
  git config -global user.name "Your Name"
  git config -global user.email "Your Email"
+
+ ### Creatig a json server
+ -> open the default directory of all your react native projects
+ ->create a folder named jsonserver
+ open the folder in terminal and run: npm init
+ -> add: npm install json-server ngrok
+-> Create an account and login to https://dashboard.ngrok.com/get-started/setup
+->follow setup  instructions
+-> in vs code open package.json file 
+        "scripts": {
+            "db": "json-server -w db.json",
+            "tunnel": "ngrok http 3000"
+        }
+
+-> create an api folder in src and jsonserver.js file
+->in file add the followin code 
+{
+    import Axios from 'axios';
+
+    export default Axios.create({
+         baseURL: 'https://be3b-41-90-64-255.ap.ngrok.io'
+})
+}
+
+->Rememer the URL changes every time we run the ngrog server
+-> run npm i axios
+
+->in the blog context file create an async function 
+{
+    const getBlogPost = async()=>{
+        const response = await jsonserver.get('/blogposts');
+        dispatch({type: 'get_blogposts', payload: response.data })
+    }
+}
+
+-> in dispach add a case to handle get blogpost
+{
+    case 'get_blogposts':
+            return action.payload
+}
+
+-> These functions pass data from the api to the BlogContext
+-> Add getBlogPost in BlogContext.provider, in index page add getBlogPost in context
+-> create a useEffect to call the getBlogPost() once
+ie: {
+     useEffect(()=>{getBlogPost();}, [] )
+}
