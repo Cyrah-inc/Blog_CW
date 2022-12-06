@@ -83,3 +83,8 @@ Incase of error I dont know who you are:
 ie: {
      useEffect(()=>{getBlogPost();}, [] )
 }
+
+### Possible errors and how to handle them
+->[AxiosError: Request failed with status code 404] Db not foudn possible error in db
+-> error 500 server error
+-> code 200 

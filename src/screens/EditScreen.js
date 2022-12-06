@@ -11,7 +11,8 @@ const EditScreen = ({route, navigation}) => {
   const blogPost = data.find((post)=>post.id === id)
   //console.log(id);
   return <BlogPostForm blogPost={blogPost}
-  onSubmit={(title, content)=>{editBlogPost(id, title, content, () => {navigation.pop()} )} }
+  onSubmit={(title, content)=>{editBlogPost(id, title, content,  () => {navigation.pop()}   )} }
+  
   // , () => {navigation.pop()}
   />
 }

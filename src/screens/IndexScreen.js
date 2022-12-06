@@ -6,9 +6,17 @@ import { AntDesign } from "@expo/vector-icons";
 const IndexScreen = ({ navigation }) => {
   const { data, addblogPost, deleteBlogPost, getBlogPost } = useContext(BlogContext);
   
-  useEffect(()=>{getBlogPost();}, [] )
+  useEffect(()=>{
+    getBlogPost()
+    const listener = navigation.addListener('focus', ()=>{getBlogPost()})
 
-  // const {number, year} = useContext(BlogContext)
+    return ()=>{
+      console.log('component deleted')
+      listener.remove()
+    };
+  }, [] );
+
+  // const {number, year} = useContext(BlogContext) 
   return (
     <View>
       <Text>IndexScreen</Text>

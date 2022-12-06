@@ -11,7 +11,8 @@ const CreateScreen = ({navigation}) => {
 
   return <BlogPostForm 
  // blogPost={blogPost}
-  onSubmit ={(title, content)=>{addBlogPost (title, content, () => {navigation.navigate('Index')} )
+  onSubmit ={(title, content)=>{addBlogPost (title, content, () => {navigation.navigate('Index')}   )
+  
     
   }}/>
   // return (
