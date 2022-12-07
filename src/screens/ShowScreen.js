@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React, { useContext } from "react";
 import BlogContext from "../Context/BlogContext";
 const ShowScreen = ({ route }) => {
@@ -9,22 +9,37 @@ const ShowScreen = ({ route }) => {
   });
 
   return (
-    <View>
+    <ScrollView>
       <Text style={styles.txt}>{blogPost.title}</Text>
+     {/** {blogPost.image!==null? <Image source={{uri: blogPost.image}} style={styles.img}/> :null} */} 
+     {blogPost.image ? <Image source={{uri: blogPost.image}} style={styles.img}/> :null}
+     
+      
+      
       <Text style ={ styles.txt1}>{blogPost.content}</Text>
-    </View>
+      
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   txt:{
-    fontSize: 16,
+    fontSize: 25,
     alignSelf: 'center'
   },
   txt1:{
-    fontSize: 16,
+    fontSize: 18,
     justifyContent: 'flex-start',
     margin:10
-  }
+  },
+  img:{
+    width:300,
+    height:300,
+    borderRadius:5,
+    margin:5,
+    borderWidth: 1,
+    alignSelf:'center',
+    aspectRatio: 0.75,
+},
 });
 
 export default ShowScreen;

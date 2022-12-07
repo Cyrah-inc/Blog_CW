@@ -88,3 +88,26 @@ ie: {
 ->[AxiosError: Request failed with status code 404] Db not foudn possible error in db
 -> error 500 server error
 -> code 200 
+
+### add images to your blog 
+-> add an image picket screen 
+->import : import * as ImagePicker from 'expo-image-picker'
+
+->in terminal type : npx expo install expo-image-picker
+->Remember to restart server after installing node modules
+->In the ImagePickerScreen add a function
+
+        const pickImage = async ()=>{
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect:[3,4],
+            quality: 1,
+        });
+
+This function allows us to pick an image from the device 
+
+-> Remeber to use conditional rendering for the image tag to avoid errors
+
+### Using Camera in RN
+-> In terminal type : npx expo install expo-camera

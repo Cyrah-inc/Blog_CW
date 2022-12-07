@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Image } from 'react-native'
 import React, {useContext} from 'react'
 import BlogPostForm from '../Components/BlogPostForm'
 import BlogContext from '../Context/BlogContext'
@@ -11,7 +11,7 @@ const EditScreen = ({route, navigation}) => {
   const blogPost = data.find((post)=>post.id === id)
   //console.log(id);
   return <BlogPostForm blogPost={blogPost}
-  onSubmit={(title, content)=>{editBlogPost(id, title, content,  () => {navigation.pop()}   )} }
+  onSubmit={(title, content,image)=>{editBlogPost(id, title, content, image,  () => {navigation.pop()}   )} }
   
   // , () => {navigation.pop()}
   />

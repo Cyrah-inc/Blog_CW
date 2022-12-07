@@ -9,6 +9,8 @@ import CreateScreen from "./src/screens/CreateScreen";
 import EditHeader from "./src/headers/EditHeader";
 import ShowScreen from "./src/screens/ShowScreen";
 import EditScreen from "./src/screens/EditScreen.js";
+import ImagePickerScreen from "./src/screens/ImagePickerScreen";
+import CameraScreen from "./src/screens/CameraScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,8 @@ function App() {
   return (
     <NavigationContainer initialRouteName="Index">
       <Stack.Navigator>
+      {/** <Stack.Screen name="CameraScreen" component={CameraScreen} /> */}
+        
         <Stack.Screen
           name="Index"
           component={IndexScreen}
@@ -24,6 +28,7 @@ function App() {
           })}
         />
         <Stack.Screen name="BaseCode" component={BaseCode} />
+        <Stack.Screen name="ImagePicker" component={ImagePickerScreen} />
         <Stack.Screen name="Create" component={CreateScreen} />
         <Stack.Screen
           name="Show"
@@ -37,7 +42,7 @@ function App() {
     </NavigationContainer>
   );
 }
-//Context wraps everything. thus you wra[p the app.js inside it
+//Context wraps everything. thus you wrap the app.js inside it
 export default () => {
   return (
     <BlogProvider>
